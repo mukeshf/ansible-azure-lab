@@ -5,7 +5,7 @@
   vars:
     # Variables 'resgrp' and 'location' need to be provided at command line with arg --extra-vars
     templateLink: 'https://raw.githubusercontent.com/nitinpokharna/ansible-azure-lab/master/azuredeploy.json'
-    paramsLink: 'https://raw.githubusercontent.com/nitinpokharna/ansible-azure-lab/master/azuredeploy.parameters.json'
+    #paramsLink: 'https://raw.githubusercontent.com/nitinpokharna/ansible-azure-lab/master/azuredeploy.parameters.json'
     # No parameters required for this template
     #paramsLink: ''
    
@@ -17,4 +17,13 @@
         # location seems to be not optional
         location: 'West US'
         template_link: '{{ templateLink }}'
-        parameters_link: '{{ paramsLink }}'
+        #parameters_link: '{{ paramsLink }}'
+        parameters:
+          sqlAdministratorLogin:
+            value: "nitinpokharna"
+          sqlAdministratorLoginPassword:
+            value: "Joshi@1234"
+          cacheSKUFamily:
+            value: "C"
+          
+          
