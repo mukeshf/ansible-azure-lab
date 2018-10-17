@@ -192,6 +192,18 @@
                 "type": "SQLAzure"
               }
             }
+          },
+          {
+            "apiVersion": "2015-08-01",
+            "type": "config",
+            "name": "appsettings",
+            "dependsOn": [
+              "[concat('Microsoft.Web/Sites/', variables('webSiteName'))]",
+              "[concat('Microsoft.Cache/Redis/', variables('cacheName'))]"
+            ],
+            "properties": {
+              "CacheConnection": "[concat(variables('cacheName'),'.redis.cache.windows.net,abortConnect=false,ssl=true,password=', listKeys(resourceId('Microsoft.Cache/Redis', variables('cacheName')), '2015-08-01').primaryKey)]"
+            }
           }
         ]
       },
