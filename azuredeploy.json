@@ -177,23 +177,20 @@
           "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
         },
         "resources": [
-          {
-            "apiVersion": "2016-03-01",
-            "type": "config",
-            "name": "connectionstrings",
-            "dependsOn": [
-              "[variables('webSiteName')]",
-              "[concat('Microsoft.Cache/Redis/', variables('cacheName'))]",
-              "[concat('Microsoft.Sql/servers/', variables('sqlserverName'))]"
-            ],
-            "properties": {
-                "CacheConnection": "[concat(variables('cacheName'),'.redis.cache.windows.net,abortConnect=false,ssl=true,password=', listKeys(resourceId('Microsoft.Cache/Redis', variables('cacheName')), '2015-08-01').primaryKey)]",
-                "DefaultConnection": {
-                "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('databaseName'), ';User Id=', parameters('sqlAdministratorLogin'), '@', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ';Password=', parameters('sqlAdministratorLoginPassword'), ';')]",
-                "type": "SQLAzure"
-              }
+                 {
+          "apiVersion": "2016-03-01",
+          "type": "config",
+          "name": "connectionstrings",
+          "dependsOn": [
+            "[variables('webSiteName')]"
+          ],
+          "properties": {
+            "DefaultConnection": {
+              "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('databaseName'), ';User Id=', parameters('sqlAdministratorLogin'), '@', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ';Password=', parameters('sqlAdministratorLoginPassword'), ';')]",
+              "type": "SQLAzure"
             }
-          },
+          }
+        },
           {
             "apiVersion": "2015-08-01",
             "type": "config",
