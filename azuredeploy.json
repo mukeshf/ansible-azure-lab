@@ -92,7 +92,8 @@
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
       "webSiteName": "[concat('webSite', uniqueString(resourceGroup().id))]",
       "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
-      "databaseName": "sampledb"
+      "databaseName": "sampledb",
+      "cacheName": "[concat('cache', uniqueString(resourceGroup().id))]"
     },
     "resources": [
       {
