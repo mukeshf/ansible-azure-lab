@@ -151,7 +151,6 @@
 						"licenseType": "[parameters('licenseType')]"
 					},
 					"sku": {
-						"name": "[parameters('skuName')]",
 						"tier": "[parameters('tier')]"
 					},
 					"type": "databases"
