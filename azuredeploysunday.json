@@ -156,21 +156,20 @@
 					"type": "databases"
 				},
 				{
-					"condition": "[parameters('allowAzureIps')]",
-					"apiVersion": "2014-04-01-preview",
-					"dependsOn": [
-						"[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-					],
-					"location": "[parameters('location')]",
-					"name": "AllowAllWindowsAzureIps",
-					"type": "firewallrules",
-					"properties": {
-						"endIpAddress": "0.0.0.0",
-						"startIpAddress": "0.0.0.0"
-					}
-				}
-			]
-		},
+            "type": "firewallrules",
+            "apiVersion": "2014-04-01",
+            "dependsOn": [
+              "[variables('sqlserverName')]"
+            ],
+            "location": "[parameters('location')]",
+            "name": "AllowAllWindowsAzureIps",
+            "properties": {
+              "endIpAddress": "0.0.0.0",
+              "startIpAddress": "0.0.0.0"
+            }
+          }
+        ]
+      },
 		{
 			"apiVersion": "2016-03-01",
 			"name": "[parameters('hostingPlanName')]",
