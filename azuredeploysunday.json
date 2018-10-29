@@ -166,10 +166,8 @@
 					"properties": {
 						"endIpAddress": "0.0.0.0",
 						"startIpAddress": "0.0.0.0"
-					},
-					"type": "firewallrules"
+					}
 
-				}
 			]
 		},
 		{
