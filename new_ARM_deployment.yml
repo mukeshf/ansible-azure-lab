@@ -42,7 +42,7 @@
           maxSizeBytes:
             value: 268435456000
           cacheName:
-            value: "nitincache"
+            value: "nitincache12345"
           serverName: 
             value: "nitinserver"          
           websiteName:
