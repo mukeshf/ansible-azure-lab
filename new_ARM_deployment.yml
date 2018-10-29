@@ -4,7 +4,7 @@
   gather_facts: False
   vars:
     # Variables 'resgrp' and 'location' need to be provided at command line with arg --extra-vars
-    templateLink: 'https://raw.githubusercontent.com/nitinpokharna/ansible-azure-lab/master/azuredeploy.json'
+    templateLink: 'https://raw.githubusercontent.com/nitinpokharna/ansible-azure-lab/master/azuredeploysunday.json'
     #paramsLink: 'https://raw.githubusercontent.com/nitinpokharna/ansible-azure-lab/master/azuredeploy.parameters.json'
     # No parameters required for this template
     #paramsLink: ''
@@ -19,11 +19,38 @@
         template_link: '{{ templateLink }}'
         #parameters_link: '{{ paramsLink }}'
         parameters:
-          sqlAdministratorLogin:
-            value: "nitinpokharna"
-          sqlAdministratorLoginPassword:
-            value: "Joshi@1234"
+          skuName:
+            value: "F1"
+          skuCapacity:
+            value: 1
+          cacheSKUName:
+            value: "Basic"
           cacheSKUFamily:
             value: "C"
+          cacheSKUCapacity:
+            value: 1
+          hostingPlanName:
+            value: "nitinhostingplan"
+          collation:
+            value: "nitincollation"
+          databaseName:
+            value: "nitindb"
+          tier:
+            value: "Basic"
+          location: 
+            value: "West US"
+          maxSizeBytes:
+            value: 268435456000
+          cacheName:
+            value: "nitincache"
+          serverName: 
+            value: "nitinserver"          
+          websiteName:
+            value: "nitinweb
+          administratorLogin:
+            value: "nitinpokharna"
+          administratorLoginPassword:
+            value: "Joshi@1234"
+
           
           
