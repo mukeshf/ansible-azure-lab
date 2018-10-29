@@ -46,7 +46,7 @@
           serverName: 
             value: "nitinserver"          
           websiteName:
-            value: "nitinweb
+            value: "nitinweb"
           administratorLogin:
             value: "nitinpokharna"
           administratorLoginPassword:
