@@ -165,7 +165,7 @@
             "type": "firewallrules",
             "apiVersion": "2014-04-01",
             "dependsOn": [
-              "[variables('serverName')]"
+              "[parameters('serverName')]"
             ],
             "location": "[parameters('location')]",
             "name": "AllowAllWindowsAzureIps",
