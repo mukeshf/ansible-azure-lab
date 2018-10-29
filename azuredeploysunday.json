@@ -127,39 +127,45 @@
 		}
 	},
 	"variables": {},
-	"resources": [{
-			"apiVersion": "2015-05-01-preview",
-			"location": "[parameters('location')]",
-			"name": "[parameters('serverName')]",
-			"properties": {
-				"administratorLogin": "[parameters('administratorLogin')]",
-				"administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-				"version": "12.0"
-			},
-			"resources": [{
-					"apiVersion": "2017-10-01-preview",
-					"dependsOn": [
-						"[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-					],
-					"location": "[parameters('location')]",
-					"name": "[parameters('databaseName')]",
-					"properties": {
-						"collation": "[parameters('collation')]",
-						"maxSizeBytes": "[parameters('maxSizeBytes')]",
-						"sampleName": "[parameters('sampleName')]",
-						"zoneRedundant": "[parameters('zoneRedundant')]",
-						"licenseType": "[parameters('licenseType')]"
-					},
-					"sku": {
-						"tier": "[parameters('tier')]"
-					},
-					"type": "databases"
-				},
-				{
+	 "resources": [
+      {
+        "name": "[parameters('serverName')]",
+        "type": "Microsoft.Sql/servers",
+        "location": "[parameters('location')]",
+        "tags": {
+          "displayName": "SqlServer"
+        },
+        "apiVersion": "2014-04-01",
+        "properties": {
+          "administratorLogin": "[parameters('administratorLogin')]",
+          "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+          "version": "12.0"
+        },
+        "resources": [
+          {
+            "name": "[parameters('databaseName')]",
+            "type": "databases",
+            "location": "[parameters('location')]",
+            "tags": {
+              "displayName": "Database"
+            },
+            "apiVersion": "2015-01-01",
+            "dependsOn": [
+              "[parameters('serverName')]"
+            ],
+            "properties": {
+			"collation": "[parameters('collation')]",
+                        "maxSizeBytes": "[parameters('maxSizeBytes')]",
+                        "sampleName": "[parameters('sampleName')]",
+                        "zoneRedundant": "[parameters('zoneRedundant')]",
+                        "licenseType": "[parameters('licenseType')]"
+            }
+          },
+          {
             "type": "firewallrules",
             "apiVersion": "2014-04-01",
             "dependsOn": [
-              "[variables('sqlserverName')]"
+              "[variables('serverName')]"
             ],
             "location": "[parameters('location')]",
             "name": "AllowAllWindowsAzureIps",
