@@ -164,11 +164,10 @@
 					"location": "[parameters('location')]",
 					"name": "AllowAllWindowsAzureIps",
 					"properties": {
+						"type": "firewallrules",
 						"endIpAddress": "0.0.0.0",
 						"startIpAddress": "0.0.0.0"
-					},
-                    				"type": "firewallrules"
-				}
+					}
 			]
 		},
 		{
