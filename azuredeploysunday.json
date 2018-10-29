@@ -218,7 +218,7 @@
 					],
 					"properties": {
 						"DefaultConnection": {
-							"value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('sqlAdministratorLogin'), '@', reference(concat('Microsoft.Sql/servers/', parameters('sqlserverName'))).fullyQualifiedDomainName, ';Password=', parameters('sqlAdministratorLoginPassword'), ';')]",
+							"value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ';Password=', parameters('administratorLoginPassword'), ';')]",
 							"type": "SQLAzure"
 						}
 					}
@@ -477,7 +477,7 @@
 		},
 		"sqlSvrFqdn": {
 			"type": "string",
-			"value": "[reference(concat('Microsoft.Sql/servers/', parameters('sqlserverName'))).fullyQualifiedDomainName]"
+			"value": "[reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName]"
 		}
 	}
 }
