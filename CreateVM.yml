@@ -21,12 +21,12 @@
         #parameters_link: '{{ paramsLink }}'
         parameters:
           virtualMachineSize:
-              Value": "Standard_A2_v2"
+              value": "Standard_A2_v2"
           adminUsername:
-              Value": "testadmin"
+              value": "testadmin"
           adminPassword:
-              Value": "Pass@1234567"
+              value": "Pass@1234567"
           storageAccountType:
-              Value: "Standard_LRS"
+              value: "Standard_LRS"
           location:
-              Value: "[resourceGroup().location]"
+              value: "[resourceGroup().location]"
