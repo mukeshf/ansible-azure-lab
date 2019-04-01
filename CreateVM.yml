@@ -28,5 +28,3 @@
               value: "Pass@1234567"
           storageAccountType:
               value: "Standard_LRS"
-          location:
-              value: "southeastasia"
