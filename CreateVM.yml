@@ -29,4 +29,4 @@
           storageAccountType:
               value: "Standard_LRS"
           location:
-              value: "[resourceGroup().location]"
+              value: "southeastasia"
